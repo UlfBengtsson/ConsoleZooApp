@@ -8,6 +8,12 @@ namespace ConsoleAppZoo
     {
         static void Main(string[] args)
         {
+            //Zoo();
+            //Modelus();
+        }//end of main
+
+        static void Zoo()
+        {
             Tiger tiger = new Tiger("Orange", "Black", "Cain", 220, WeightUnit.Kg);
 
             //Console.WriteLine(tiger.Info());
@@ -58,6 +64,17 @@ namespace ConsoleAppZoo
                     Console.WriteLine(item.Key + " " + item.Value);
                 }
             }
+        }
+
+        static void Modelus()
+        {
+            int paid = 12;
+            int mod = 5;
+            int result = 0;
+
+            result = paid % mod;
+
+            Console.WriteLine(result);
         }
     }
 }
