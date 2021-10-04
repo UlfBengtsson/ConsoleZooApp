@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleAppZoo.Models
 {
-    public class Tiger : Animal
+    public class Tiger : Animal, IDanger
     {
 
         public string FurColor { get; set; }
@@ -24,6 +24,15 @@ namespace ConsoleAppZoo.Models
         public override string Info()
         {
             return base.Info() + $"\nFur: {FurColor} with {StripesColor} stripes";
+        }
+
+        public Dictionary<string, int> DangerTypes()
+        {
+            Dictionary<string, int> listOfDangers = new Dictionary<string, int>();
+            listOfDangers.Add("Claws", 9);
+            listOfDangers.Add("Bite", 7);
+
+            return listOfDangers;
         }
     }
 }

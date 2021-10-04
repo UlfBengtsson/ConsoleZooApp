@@ -1,5 +1,6 @@
 ﻿using ConsoleAppZoo.Models;
 using System;
+using System.Collections.Generic;
 
 namespace ConsoleAppZoo
 {
@@ -17,7 +18,11 @@ namespace ConsoleAppZoo
             //Console.WriteLine(elephant.Info());
             //Console.WriteLine(elephant.MakeNoise());
 
-            Animal[] zooAnimals = new Animal[] { elephant, tiger };
+            Animal animalMouse = new Mouse(5, "Miky", 22, WeightUnit.grams);
+
+            Animal[] zooAnimals = new Animal[] { elephant, tiger, animalMouse };
+
+            List<IDanger> dangerZone = new List<IDanger>();
 
             foreach (Animal animal in zooAnimals)
             {
@@ -34,6 +39,24 @@ namespace ConsoleAppZoo
                 //{
                 //    Console.WriteLine(animal.Info());
                 //}
+
+                if (animal is IDanger)
+                {
+                    dangerZone.Add((animal as IDanger));
+                }
+            }
+
+            Console.WriteLine("\nDanger Zone of the Zoo\n");
+
+            dangerZone.Add(new Saw());
+
+            foreach (IDanger danger in dangerZone)
+            {
+                Console.WriteLine(danger.GetType().Name);
+                foreach (var item in danger.DangerTypes())
+                {
+                    Console.WriteLine(item.Key + " " + item.Value);
+                }
             }
         }
     }
